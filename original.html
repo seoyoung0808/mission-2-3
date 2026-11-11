@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>차곡차곡 · 주중 플래너</title>
+<style>
+:root{--ink:#233b35;--muted:#687b75;--line:#dce5df;--paper:#fff;--green:#256652;--pale:#edf5ef;--slot:22px;--axis:64px}
+*{box-sizing:border-box}body{margin:0;background:#f5f7f3;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic",sans-serif;font-size:14px;line-height:1.5}button,input,select{font:inherit}button,input,select{border-radius:9px}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:3px solid #479b80;outline-offset:3px}button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;font-weight:650;transition:background .15s}button:hover:not(:disabled){background:#f0f5f0}.primary{background:var(--green);border-color:var(--green);color:#fff}.primary:hover:not(:disabled){background:#174b3c}.quiet{background:transparent}.small{font-size:12px;padding:6px 10px}.page{max-width:1480px;margin:auto;padding:32px 36px 26px}.top{display:flex;justify-content:space-between;gap:22px;align-items:center;margin-bottom:23px}.brand{display:flex;gap:15px;align-items:center}.brand-mark{display:grid;grid-template-columns:repeat(2,12px);gap:4px;background:#e2eee6;padding:13px;border-radius:16px;transform:rotate(-4deg)}.brand-mark i{height:12px;border-radius:3px;background:#39765f}.brand-mark i:nth-child(2){background:#a5cbb7}.brand-mark i:nth-child(3){background:#d1af6e}.brand-mark i:nth-child(4){background:#779e8d}h1{font-size:28px;letter-spacing:-1px;line-height:1.2;margin:0 0 6px;font-weight:780}.subtitle{margin:0;color:var(--muted);font-size:13px}.header-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.saved{font-size:12px;color:#4c7766;display:flex;align-items:center;gap:6px;margin-right:8px}.saved::before{content:"";width:6px;height:6px;border-radius:50%;background:#63a183}.workspace{display:grid;grid-template-columns:1.18fr 1.05fr .92fr;gap:16px;align-items:stretch}.panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;min-width:0}.panel-heading{display:flex;gap:9px;align-items:center;margin-bottom:17px}.step{font-size:11px;font-weight:800;color:#5e7f6d;background:#edf4ed;border-radius:7px;padding:4px 7px;letter-spacing:.5px}h2{font-size:16px;margin:0;letter-spacing:-.4px}.hint{color:var(--muted);font-size:12px;margin:9px 0 0}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field label,.field-label{font-size:12px;font-weight:650;color:#52675f}.optional{font-size:11px;font-weight:400;color:#829189}.row{display:grid;grid-template-columns:1fr 112px;gap:10px}.row.equal{grid-template-columns:1fr 1fr}input,select{border:1px solid #d5e0d7;width:100%;background:#fff;padding:9px 11px;color:var(--ink);min-width:0;height:40px}input::placeholder{color:#98a59f}input:focus,select:focus{border-color:#75a28a}.color-field{border:0;padding:0;margin:15px 0}.color-field legend{font-size:12px;font-weight:650;padding:0;margin-bottom:8px;color:#52675f}.swatches{display:flex;gap:7px;flex-wrap:wrap}.swatch{position:relative;display:block}.swatch input{position:absolute;opacity:0;width:1px;height:1px}.swatch span{display:block;width:24px;height:24px;border-radius:50%;border:1px solid #00000012;cursor:pointer}.swatch input:checked+span{outline:2px solid #305a48;outline-offset:3px}.swatch input:checked+span::after{content:"✓";display:block;font-size:13px;font-weight:800;text-align:center;line-height:22px;color:#284a3c}.swatch input:focus-visible+span{outline:3px solid #256652;outline-offset:3px}.optional-area{border-top:1px solid #edf0eb;padding-top:12px}.optional-heading{font-size:12px;font-weight:600;margin:0 0 9px;color:#52675f}.wide{width:100%;margin-top:14px}.card-list{display:grid;grid-template-columns:1fr 1fr;gap:9px;max-height:224px;overflow-y:auto;padding:4px;margin:-4px}.activity-card{border-radius:12px;position:relative;border:1px solid #0000000c;padding:13px 31px 12px 12px;min-height:78px;cursor:grab;user-select:none}.activity-card:active,.event:active{cursor:grabbing}.activity-card[aria-pressed="true"]{outline:2px solid var(--green);outline-offset:1px}.activity-card .name{font-size:14px;font-weight:750;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.activity-card .duration{font-size:12px;color:#425b51;display:block;margin-top:4px}.delete{position:absolute;top:5px;right:4px;padding:0;width:24px;height:24px;border:0;background:transparent;border-radius:6px;line-height:24px;color:#496053;font-size:18px;font-weight:400}.delete:hover{background:#ffffff9c!important}.empty{grid-column:1/-1;color:var(--muted);padding:20px 4px;font-size:13px}.tip-box{margin-top:18px;border-radius:10px;background:#f7f8f4;padding:11px 12px;font-size:12px;color:#718074;display:flex;gap:7px}.tip-icon{font-size:16px;line-height:1.3;color:#78957f}.selected-preview{display:flex;gap:10px;align-items:center;border-bottom:1px solid #edf0eb;padding-bottom:14px;margin-bottom:15px;min-height:48px}.preview-dot{height:32px;width:5px;border-radius:4px;background:#bcd8ca;flex:none}.preview-text{font-size:12px;color:#6c8175}.preview-text strong{display:block;color:var(--ink);font-size:13px;overflow-wrap:anywhere}.assign-fields{display:grid;gap:12px}.message{margin:16px 0;min-height:43px;padding:10px 14px;background:#eaf2ec;border-radius:10px;color:#526d5c;display:flex;align-items:center;gap:9px;font-size:13px}.message::before{content:"✓";color:#477b5d;font-weight:800}.message.error{background:#fff0e9;color:#98482b}.message.error::before{content:"!";color:#98482b}.message.info::before{content:"↳"}.storage-warning{margin:0 0 16px;padding:12px 14px;border:1px solid #ebc09d;border-radius:10px;background:#fff2e4;color:#86532c;font-size:13px}.storage-warning button{margin-left:10px}.storage-warning[hidden]{display:none}.board-section{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}.board-top{padding:17px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}.board-title{display:flex;align-items:baseline;gap:12px}.board-title span{font-size:12px;color:var(--muted)}.jump{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}.jump select{width:100px;height:32px;padding:4px 9px;font-size:12px}.timetable{height:620px;overflow:auto;position:relative;overscroll-behavior:contain;scrollbar-color:#bdcdc0 #f8faf6;scrollbar-width:thin}.grid-shell{min-width:780px}.day-heads{display:grid;grid-template-columns:var(--axis) repeat(5,minmax(0,1fr));height:45px;position:sticky;top:0;z-index:8;background:#f4f8f2;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.day-heads>div{padding:11px 0;text-align:center;border-left:1px solid #e4ebe0;font-size:13px;font-weight:700}.day-heads .axis-head{border-left:0;font-size:10px;color:#899788;font-weight:500;padding-top:13px}.time-grid{display:grid;grid-template-columns:var(--axis) repeat(5,minmax(0,1fr));height:calc(var(--slot)*72);position:relative;margin-bottom:26px}.time-axis{position:relative;background:#fbfcf9}.hour-label{position:absolute;left:0;right:10px;text-align:right;transform:translateY(-50%);font-size:11px;letter-spacing:.1px;color:#83907f;font-variant-numeric:tabular-nums}.hour-label:first-child{transform:translateY(2px)}.day-column{position:relative;border-left:1px solid #e1e8dd;background:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--slot) - 1px),#eef2eb calc(var(--slot) - 1px),#eef2eb var(--slot)),repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--slot)*4 - 1px),#d7e1d2 calc(var(--slot)*4 - 1px),#d7e1d2 calc(var(--slot)*4));outline:none}.day-column:hover{background-color:#fdfefb}.day-column.drop-over{background-color:#f0f7f0}.event{position:absolute;left:5px;right:5px;padding:3px 27px 3px 8px;border-radius:7px;border:1px solid #0000000d;border-left:3px solid var(--event-accent,#84ac96);cursor:grab;user-select:none;overflow:hidden;z-index:2;box-shadow:0 1px 2px #233b3508}.event .event-name{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px;line-height:15px;font-weight:750}.event .event-time{display:block;font-size:10px;line-height:12px;font-variant-numeric:tabular-nums;color:#42574c;white-space:nowrap}.event .delete{top:3px;right:2px;width:22px;height:22px;line-height:20px;font-size:17px}.event[aria-selected="true"]{outline:2px solid #3a7862;outline-offset:1px}.drop-marker{position:absolute;left:3px;right:3px;border:2px dashed #4f9275;border-radius:7px;background:#d2e9db80;pointer-events:none;z-index:5;color:#2f6a4e;padding:2px 6px;font-size:11px}.drop-marker.invalid{border-color:#be704e;background:#f9e0d080;color:#98482b}.board-bottom{display:flex;gap:15px;justify-content:space-between;align-items:center;background:#fafbf8;border-top:1px solid var(--line);padding:10px 20px;color:#7b8978;font-size:11px}.mini-key{display:flex;gap:14px}.mini-key span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:5px;background:#b8d1bd}.mini-key span:last-child::before{background:#fff;border:1px solid #d3ddcd}.footer{display:flex;justify-content:space-between;font-size:11px;color:#92a08e;margin-top:16px}.footer p{margin:0}dialog{border:1px solid var(--line);border-radius:16px;padding:25px;width:min(420px,calc(100% - 40px));box-shadow:0 20px 80px #233b352e;color:var(--ink)}dialog::backdrop{background:#17372a50}dialog h2{margin-bottom:8px}dialog p{font-size:13px;color:var(--muted)}.dialog-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:20px}.edit-name{font-weight:700;color:var(--ink)!important;overflow-wrap:anywhere}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;clip:rect(0,0,0,0);overflow:hidden;white-space:nowrap}
+@media(max-width:1100px){.page{padding:25px 20px}.workspace{grid-template-columns:1.1fr 1fr}.assign-panel{grid-column:1/-1}.assign-panel .assign-fields{grid-template-columns:1fr 1fr 150px;align-items:end}.assign-panel .wide{margin:0}.selected-preview{display:none}.assign-panel .panel-heading{margin-bottom:12px}.top{align-items:flex-start}.header-tools{max-width:330px}.saved{width:100%;justify-content:flex-end}.timetable{height:560px}}
+@media(max-width:680px){.page{padding:20px 12px}.top{display:block}.header-tools{max-width:none;justify-content:flex-start;margin-top:18px}.saved{width:auto;justify-content:flex-start}.workspace{display:block}.panel{margin-bottom:12px;padding:18px}.assign-panel .assign-fields{display:grid;grid-template-columns:1fr}.assign-panel .wide{margin-top:2px}.board-top{padding:16px;align-items:flex-start}.board-title{display:block}.board-title span{display:block;margin-top:3px}.board-bottom{align-items:flex-start;gap:8px;flex-direction:column}.footer{display:block}.footer p+ p{margin-top:4px}}
+
+/* 15분 일정은 좁아진 칸 안에서 이름과 시간을 한 줄로 읽는다. */
+.event.compact{display:flex;align-items:center;gap:5px;padding:0 19px 0 5px;border-radius:5px}
+.event.compact .event-name{flex:1;min-width:0;font-size:11px;line-height:16px}
+.event.compact .event-time{flex:none;font-size:9.5px;line-height:16px}
+.event.compact .delete{top:2px;right:1px;width:16px;height:16px;line-height:16px;font-size:15px}
+.drop-marker{padding:0 4px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.delete-dialog{max-height:calc(100vh - 40px);overflow:auto}
+.delete-dialog .delete-target{font-size:15px;font-weight:700;color:var(--ink);overflow-wrap:anywhere;white-space:pre-line;background:var(--pale);border-radius:10px;padding:12px}
+.delete-dialog .danger{background:#a34337;border-color:#a34337;color:#fff}
+.delete-dialog .danger:hover{background:#85352c}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="top">
+    <div class="brand"><div class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div><h1>차곡차곡</h1><p class="subtitle">작은 일정 하나부터, 나다운 한 주를 만들어 보세요.</p></div></div>
+    <div class="header-tools"><span class="saved" id="save-status">브라우저 자동 저장</span><button id="export-button" type="button">↓ 데이터 저장</button><button id="import-button" type="button">↑ 불러오기</button><button id="reset-button" class="quiet" type="button" title="기본 카드 4종과 빈 시간표로 되돌리기">전체 초기화</button><input class="sr-only" type="file" id="import-file" accept=".json,application/json" tabindex="-1" aria-label="플래너 JSON 파일"></div>
+  </header>
+  <div class="storage-warning" id="storage-warning" role="alert" hidden><span id="storage-warning-text"></span><button id="resume-storage" type="button" class="small" hidden>현재 상태로 저장 다시 시작</button></div>
+  <section class="workspace" aria-label="일정 카드 작업 영역">
+    <section class="panel">
+      <div class="panel-heading"><span class="step">01</span><h2>새 카드 만들기</h2></div>
+      <form id="create-form" novalidate>
+        <div class="row"><div class="field"><label for="card-name">활동 이름 <span aria-hidden="true">*</span></label><input id="card-name" name="name" type="text" placeholder="예: 책 읽기" required autocomplete="off"></div><div class="field"><label for="card-duration">소요 시간 (분) *</label><input id="card-duration" name="duration" type="number" min="15" step="15" placeholder="30" required inputmode="numeric"></div></div>
+        <fieldset class="color-field"><legend>카드 색상 <span class="optional">· 기본은 세이지</span></legend><div class="swatches" id="swatches"></div></fieldset>
+        <div class="optional-area"><p class="optional-heading">만들면서 바로 배정 <span class="optional">선택</span></p><div class="row equal"><div class="field"><label for="create-day" class="sr-only">바로 배정할 요일</label><select id="create-day"><option value="">요일 선택 안 함</option value="0">월요일</option><option value="1">화요일</option><option value="2">수요일</option><option value="3">목요일</option><option value="4">금요일</option></select></div><div class="field"><label for="create-time" class="sr-only">바로 배정할 시작 시간</label><input id="create-time" type="time" min="06:00" max="23:45" step="900" aria-label="바로 배정할 시작 시간"></div></div><p class="hint">요일과 시간을 모두 입력하면 배정을 시도합니다.</p></div>
+        <button class="primary wide" type="submit">＋ 카드 만들기</button>
+      </form>
+    </section>
+    <section class="panel">
+      <div class="panel-heading"><span class="step">02</span><h2>내 카드</h2><span id="card-count" class="optional"></span></div>
+      <div id="card-list" class="card-list" aria-label="활동 카드 목록"></div>
+      <div class="tip-box"><span class="tip-icon" aria-hidden="true">↙</span><span>시간표로 끌어 놓거나, 카드를 선택해 배정하세요. 같은 카드는 여러 번 사용할 수 있어요.</span></div>
+      <p class="hint">카드의 ×를 누른 뒤 삭제를 확인해 주세요. 이미 배정한 일정은 남습니다.</p>
+    </section>
+    <section class="panel assign-panel">
+      <div class="panel-heading"><span class="step">03</span><h2>시간표에 배정</h2></div>
+      <div class="selected-preview"><div class="preview-dot" id="preview-dot"></div><div class="preview-text"><strong id="preview-name">카드를 선택해 주세요</strong><span id="preview-duration">원하는 요일과 시작 시간에 배정해요.</span></div></div>
+      <form id="assign-form" novalidate><div class="assign-fields"><div class="field"><label for="selected-card">배정할 카드</label><select id="selected-card" required><option value="">카드를 선택해 주세요</option></select></div><div class="row equal"><div class="field"><label for="assign-day">요일</label><select id="assign-day"><option value="0">월요일</option><option value="1">화요일</option><option value="2">수요일</option><option value="3">목요일</option><option value="4">금요일</option></select></div><div class="field"><label for="assign-time">시작 시간</label><input id="assign-time" type="time" min="06:00" max="23:45" step="900" value="09:00" required></div></div><button class="primary wide" type="submit">시간표에 추가 →</button></div></form>
+      <p class="hint">06:00~24:00 · 15분 단위 · 겹치지 않게</p>
+    </section>
+  </section>
+  <div id="message" class="message info" role="status" aria-live="polite">한 주의 빈칸을 채워 보세요. 카드를 끌어 놓으면 일정이 복사됩니다.</div>
+  <section class="board-section" aria-labelledby="board-heading">
+    <div class="board-top"><div class="board-title"><h2 id="board-heading">나의 주중 시간표</h2><span>월요일부터 금요일까지</span></div><label class="jump" for="jump-time">시간 이동<select id="jump-time"><option value="360">06:00</option><option value="540">09:00</option><option value="720">12:00</option><option value="900">15:00</option><option value="1080">18:00</option><option value="1260">21:00</option></select></label></div>
+    <div class="timetable" id="timetable" aria-label="월~금 06:00~24:00 시간표"><div class="grid-shell"><div class="day-heads"><div class="axis-head">시간</div><div>월요일</div><div>화요일</div><div>수요일</div><div>목요일</div><div>금요일</div></div><div class="time-grid"><div class="time-axis" id="time-axis" aria-hidden="true"></div><div class="day-column" data-day="0" aria-label="월요일 일정"></div><div class="day-column" data-day="1" aria-label="화요일 일정"></div><div class="day-column" data-day="2" aria-label="수요일 일정"></div><div class="day-column" data-day="3" aria-label="목요일 일정"></div><div class="day-column" data-day="4" aria-label="금요일 일정"></div></div></div></div>
+    <div class="board-bottom"><span>일정을 끌어 이동 · 일정을 클릭하거나 Enter를 눌러 시간 변경 · ×로 개별 삭제</span><div class="mini-key"><span>배정된 일정</span><span>비어 있는 시간</span></div></div>
+  </section>
+  <footer class="footer"><p>차곡차곡 · 날짜 없는 나만의 주간 계획</p><p>이 브라우저에 저장됩니다. 중요한 계획은 데이터 파일로 보관하세요.</p></footer>
+</main>
+<dialog id="edit-dialog" aria-labelledby="edit-heading"><form id="edit-form" novalidate><h2 id="edit-heading">일정 시간 변경</h2><p class="edit-name" id="edit-name"></p><div class="row equal"><div class="field"><label for="edit-day">요일</label><select id="edit-day"><option value="0">월요일</option><option value="1">화요일</option><option value="2">수요일</option><option value="3">목요일</option><option value="4">금요일</option></select></div><div class="field"><label for="edit-time">시작 시간</label><input id="edit-time" type="time" min="06:00" max="23:45" step="900" required></div></div><p id="edit-error" role="alert"></p><div class="dialog-actions"><button type="button" id="cancel-edit">취소</button><button type="submit" class="primary">변경 저장</button></div></form></dialog>
+<dialog id="delete-dialog" class="delete-dialog" aria-labelledby="delete-heading" aria-describedby="delete-target delete-description">
+  <h2 id="delete-heading">삭제할까요?</h2>
+  <p id="delete-target" class="delete-target"></p>
+  <p id="delete-description"></p>
+  <div class="dialog-actions"><button id="cancel-delete" type="button" autofocus>취소</button><button id="confirm-delete" type="button" class="danger">삭제</button></div>
+</dialog>
+<script>
+(()=>{
+'use strict';
+const STORAGE_KEY='chagok-week-planner-v1';
+const START=360,END=1440,STEP=15;
+const SLOT=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--slot'));
+const DAYS=['월요일','화요일','수요일','목요일','금요일'];
+const COLORS=[
+ {name:'세이지',bg:'#dcebdd',accent:'#6a9d76'}, {name:'민트',bg:'#d4eee5',accent:'#56a58b'},
+ {name:'하늘',bg:'#dcebf5',accent:'#75a6c8'}, {name:'라벤더',bg:'#e7e2f4',accent:'#a195c7'},
+ {name:'장미',bg:'#f4dfe5',accent:'#cc91a4'}, {name:'복숭아',bg:'#f7e2d4',accent:'#d7a07f'},
+ {name:'노랑',bg:'#f5edc9',accent:'#c4b665'}, {name:'라임',bg:'#e9edce',accent:'#a6b666'},
+ {name:'모래',bg:'#ece5d9',accent:'#b9a58a'}, {name:'안개',bg:'#e2e7ed',accent:'#91a2b6'}
+];
+const $=id=>document.getElementById(id);
+let state,selectedId='',drag=null,editingId=null,storageBlocked=false,importEpoch=0,pendingDeletion=null;
+const uid=()=> (globalThis.crypto&&typeof crypto.randomUUID==='function')?crypto.randomUUID():'id-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2);
+const defaults=()=>({version:1,cards:[{id:uid(),name:'공부',duration:60,color:0},{id:uid(),name:'운동',duration:30,color:2},{id:uid(),name:'식사',duration:60,color:5},{id:uid(),name:'휴식',duration:15,color:3}],events:[]});
+const time=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+const durationText=m=>m+'분';
+const element=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el;};
+function notify(text,error=false){$('message').textContent=text;$('message').className='message '+(error?'error':'');}
+function parseTime(value){if(!/^\d{2}:\d{2}$/.test(value))throw Error('시작 시간을 입력해 주세요.');const [h,m]=value.split(':').map(Number);if(m>59||h>24||(h===24&&m!==0))throw Error('올바른 시작 시간을 입력해 주세요.');const minutes=h*60+m;if(minutes%STEP!==0)throw Error('시작 시간은 15분 단위로 입력해 주세요. (예: 09:00, 09:15)');return minutes;}
+function cardError(card){if(!card||typeof card!=='object'||Array.isArray(card))return '카드 형식이 올바르지 않습니다.';if(typeof card.id!=='string'||!card.id.trim()||card.id.length>200)return '카드 식별자가 올바르지 않습니다.';if(typeof card.name!=='string'||!card.name.trim())return '카드 이름이 비어 있습니다.';if(!Number.isSafeInteger(card.duration)||card.duration<STEP||card.duration%STEP!==0)return '소요 시간은 15분 이상의 15분 배수여야 합니다.';if(!Number.isInteger(card.color)||card.color<0||card.color>=COLORS.length)return '카드 색상 값이 올바르지 않습니다.';return '';}
+function placementError(day,start,duration,excludeId=null,events=state.events){if(!Number.isInteger(day)||day<0||day>4)return '월요일~금요일 중 요일을 선택해 주세요.';if(!Number.isInteger(start)||start%STEP!==0)return '시작 시간은 15분 단위여야 합니다.';if(start<START||start>=END||start+duration>END)return '일정은 06:00~24:00 안에 시작하고 끝나야 합니다. 정확히 24:00 종료는 가능합니다.';const conflict=events.find(e=>e.id!==excludeId&&e.day===day&&start<e.start+e.duration&&start+duration>e.start);if(conflict)return DAYS[day]+' '+time(conflict.start)+'~'+time(conflict.start+conflict.duration)+'의 “'+conflict.name+'” 일정과 겹칩니다.';return '';}
+function validateData(data){if(!data||typeof data!=='object'||Array.isArray(data)||data.version!==1||!Array.isArray(data.cards)||!Array.isArray(data.events))throw Error('플래너 데이터 형식 또는 버전이 올바르지 않습니다.');if(data.cards.length>10000||data.events.length>360)throw Error('데이터 항목 수가 허용 범위를 넘었습니다.');const cardIds=new Set(),eventIds=new Set();const cards=data.cards.map(c=>{const error=cardError(c);if(error)throw Error(error);if(cardIds.has(c.id))throw Error('중복된 카드 식별자가 있습니다.');cardIds.add(c.id);return{id:c.id,name:c.name.trim(),duration:c.duration,color:c.color};});const events=[];for(const e of data.events){const error=cardError(e);if(error)throw Error(error);if(eventIds.has(e.id))throw Error('중복된 일정 식별자가 있습니다.');eventIds.add(e.id);const placement=placementError(e.day,e.start,e.duration,null,events);if(placement)throw Error(placement);events.push({id:e.id,name:e.name.trim(),duration:e.duration,color:e.color,day:e.day,start:e.start});}return{version:1,cards,events};}
+function storageWarning(message,canResume=false){$('storage-warning').hidden=false;$('storage-warning-text').textContent=message;$('resume-storage').hidden=!canResume;$('save-status').textContent='자동 저장 확인 필요';}
+function persist(){if(storageBlocked){$('save-status').textContent='자동 저장 일시 중지';return false;}try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));$('save-status').textContent='자동 저장 완료';$('storage-warning').hidden=true;return true;}catch(err){storageWarning('브라우저에 저장하지 못했습니다. 저장 공간·권한을 확인하고, 현재 계획은 “데이터 저장”으로 파일에 보관해 주세요.');return false;}}
+function load(){try{const raw=localStorage.getItem(STORAGE_KEY);if(raw===null){state=defaults();$('save-status').textContent='브라우저 자동 저장';return;}try{state=validateData(JSON.parse(raw));$('save-status').textContent='저장된 계획 복원';}catch(err){state=defaults();storageBlocked=true;storageWarning('저장된 데이터가 손상되어 기본 카드로 열었습니다. 기존 저장값은 보존되며 자동 저장은 중지했습니다. 파일을 불러오거나 현재 상태로 저장을 다시 시작할 수 있습니다.',true);}}catch(err){state=defaults();storageWarning('브라우저 저장 공간을 읽을 수 없습니다. 현재 계획은 “데이터 저장”으로 파일에 보관해 주세요.');}}
+function applyColor(el,color){el.style.backgroundColor=COLORS[color].bg;el.style.setProperty('--event-accent',COLORS[color].accent);}
+function selectCard(id){selectedId=id;$('selected-card').value=id;document.querySelectorAll('.activity-card').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.id===id)));const card=state.cards.find(c=>c.id===id);$('preview-name').textContent=card?card.name:'카드를 선택해 주세요';$('preview-duration').textContent=card?durationText(card.duration)+' · 반복해서 배정할 수 있어요.':'원하는 요일과 시작 시간에 배정해요.';$('preview-dot').style.backgroundColor=card?COLORS[card.color].accent:'#bcd8ca';}
+function renderCards(){const list=$('card-list');list.replaceChildren();$('selected-card').replaceChildren(new Option('카드를 선택해 주세요',''));$('card-count').textContent=state.cards.length+'개';if(!state.cards.some(c=>c.id===selectedId))selectedId='';if(!state.cards.length)list.append(element('p','empty','아직 카드가 없어요. 새 활동을 만들어 보세요.'));state.cards.forEach(card=>{const el=element('div','activity-card');el.dataset.id=card.id;el.draggable=true;el.tabIndex=0;el.setAttribute('role','button');el.setAttribute('aria-label',card.name+', '+durationText(card.duration)+', 선택하거나 시간표로 드래그');el.setAttribute('aria-pressed',String(selectedId===card.id));el.title=card.name+' · '+durationText(card.duration);applyColor(el,card.color);el.append(element('span','name',card.name),element('span','duration',durationText(card.duration)));const del=element('button','delete','×');del.type='button';del.title='원본 카드 삭제';del.setAttribute('aria-label',card.name+' 원본 카드 삭제');del.addEventListener('click',event=>{event.stopPropagation();openDeleteDialog('card',card,del);});el.append(del);el.addEventListener('click',()=>selectCard(card.id));el.addEventListener('keydown',event=>{if(event.target!==el)return;if(event.key==='Enter'||event.key===' '){event.preventDefault();selectCard(card.id);$('selected-card').focus();}});el.addEventListener('dragstart',event=>{if(event.target.closest('button')){event.preventDefault();return;}selectCard(card.id);startDrag(event,{kind:'card',id:card.id,offset:0});});el.addEventListener('dragend',clearDrag);list.append(el);$('selected-card').append(new Option(card.name+' · '+durationText(card.duration),card.id));});selectCard(selectedId);}
+function renderEvents(){document.querySelectorAll('.event').forEach(el=>el.remove());state.events.forEach(event=>{const el=element('div','event'+(event.duration===STEP?' compact':''));el.dataset.id=event.id;el.dataset.start=String(event.start);el.dataset.day=String(event.day);el.style.top=((event.start-START)/STEP*SLOT)+'px';el.style.height=(event.duration/STEP*SLOT)+'px';el.draggable=true;el.tabIndex=0;el.setAttribute('role','button');const description=event.name+', '+DAYS[event.day]+' '+time(event.start)+'~'+time(event.start+event.duration);el.setAttribute('aria-label',description+', 클릭하여 시간 변경');el.title=description;applyColor(el,event.color);el.append(element('span','event-name',event.name),element('span','event-time',time(event.start)+'–'+time(event.start+event.duration)));const del=element('button','delete','×');del.type='button';del.title='이 일정만 삭제';del.setAttribute('aria-label',description+' 일정 삭제');del.addEventListener('click',e=>{e.stopPropagation();openDeleteDialog('event',event,del);});el.append(del);el.addEventListener('click',()=>openEdit(event.id));el.addEventListener('keydown',e=>{if(e.target!==el)return;if(e.key==='Enter'||e.key===' '){e.preventDefault();openEdit(event.id);}});el.addEventListener('dragstart',e=>{if(e.target.closest('button')){e.preventDefault();return;}startDrag(e,{kind:'event',id:event.id,offset:Math.max(0,Math.floor((e.clientY-el.getBoundingClientRect().top)/SLOT))});});el.addEventListener('dragend',clearDrag);document.querySelector('.day-column[data-day="'+event.day+'"]').append(el);});}
+// 페이지 내부 확인창: 브라우저 기본 확인창을 지원하지 않는 환경에서도 표시한다.
+function openDeleteDialog(kind,item,trigger){
+  const dialog=$('delete-dialog');
+  if(dialog.open||pendingDeletion)return;
+  pendingDeletion={kind,item,trigger};
+  $('delete-heading').textContent=kind==='card'?'원본 카드를 삭제할까요?':'이 일정을 삭제할까요?';
+  $('delete-target').textContent='“'+item.name+'”'+(kind==='event'?'\n'+DAYS[item.day]+' '+time(item.start)+'~'+time(item.start+item.duration):'');
+  $('delete-description').textContent=kind==='card'?'카드 목록에서만 삭제됩니다. 이미 배치한 일정은 그대로 유지됩니다.':'선택한 이 일정만 삭제됩니다. 원본 카드와 다른 일정은 유지됩니다.';
+  dialog.showModal();
+  $('cancel-delete').focus({preventScroll:true});
+}
+function finishDeletion(approved){
+  const request=pendingDeletion;
+  pendingDeletion=null;
+  if($('delete-dialog').open)$('delete-dialog').close();
+  if(!request)return;
+  const {kind,item,trigger}=request;
+  if(!approved){
+    notify((kind==='card'?'카드':'일정')+' 삭제를 취소했습니다. 기존 내용을 유지합니다.');
+    if(trigger.isConnected)trigger.focus({preventScroll:true});
+    return;
+  }
+  const items=kind==='card'?state.cards:state.events;
+  if(!items.includes(item)){
+    notify('삭제 대상이 변경되어 삭제하지 않았습니다. 현재 내용을 확인해 주세요.',true);
+  }else if(kind==='card'){
+    state.cards=state.cards.filter(c=>c.id!==item.id);
+    renderCards();persist();
+    notify('원본 카드를 삭제했습니다. 이미 배정한 일정은 유지됩니다.');
+  }else{
+    state.events=state.events.filter(e=>e.id!==item.id);
+    renderEvents();persist();
+    notify('선택한 일정만 삭제했습니다. 원본 카드와 다른 일정은 유지됩니다.');
+  }
+  $(kind==='card'?'selected-card':'jump-time').focus({preventScroll:true});
+}
+$('cancel-delete').addEventListener('click',()=>finishDeletion(false));
+$('confirm-delete').addEventListener('click',()=>finishDeletion(true));
+$('delete-dialog').addEventListener('cancel',event=>{event.preventDefault();finishDeletion(false);});
+$('delete-dialog').addEventListener('keydown',event=>{
+  if(event.key!=='Tab'||event.ctrlKey||event.metaKey||event.altKey)return;
+  const first=$('cancel-delete'),last=$('confirm-delete');
+  if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+});
+$('delete-dialog').addEventListener('close',()=>{if(!$('delete-dialog').open&&pendingDeletion)finishDeletion(false);});
+function revealEvent(id){const event=state.events.find(e=>e.id===id);if(!event)return;const top=(event.start-START)/STEP*SLOT;const viewport=$('timetable');if(top<viewport.scrollTop||top+event.duration/STEP*SLOT>viewport.scrollTop+viewport.clientHeight-45)viewport.scrollTo({top:Math.max(0,top-60),behavior:'smooth'});}
+function addEvent(card,day,start){const error=placementError(day,start,card.duration);if(error)return{error};const event={id:uid(),name:card.name,duration:card.duration,color:card.color,day,start};state.events.push(event);return{event};}
+function moveEvent(id,day,start){const event=state.events.find(e=>e.id===id);if(!event)return '이동할 일정을 찾을 수 없습니다.';const error=placementError(day,start,event.duration,id);if(error)return error;event.day=day;event.start=start;renderEvents();persist();return '';}
+$('create-form').addEventListener('submit',event=>{event.preventDefault();const name=$('card-name').value.trim(),raw=$('card-duration').value,duration=Number(raw);if(!name){notify('활동 이름을 입력해 주세요.',true);$('card-name').focus();return;}if(!raw||!Number.isSafeInteger(duration)||duration<STEP||duration%STEP!==0){notify('소요 시간은 15분 이상의 15분 배수로 입력해 주세요. (예: 15, 30, 60)',true);$('card-duration').focus();return;}const card={id:uid(),name,duration,color:Number(document.querySelector('input[name="color"]:checked')?.value||0)};const dayValue=$('create-day').value,timeValue=$('create-time').value;let assigned=null,error='';if(dayValue!==''&&timeValue){try{const start=parseTime(timeValue);const result=addEvent(card,Number(dayValue),start);assigned=result.event;error=result.error||'';}catch(err){error=err.message;}}state.cards.push(card);selectedId=card.id;renderCards();renderEvents();persist();if(assigned){notify('카드를 만들고 '+DAYS[assigned.day]+' '+time(assigned.start)+'~'+time(assigned.start+assigned.duration)+'에 배정했습니다.');revealEvent(assigned.id);}else if(error){notify('카드는 만들었지만 배정하지 못했습니다. '+error,true);}else{notify(dayValue!==''||timeValue?'카드를 만들었습니다. 요일과 시간을 모두 입력하지 않아 목록에만 추가했습니다.':'카드를 만들었습니다. 목록에서 선택하거나 시간표로 끌어 놓으세요.');}$('card-name').value='';$('card-duration').value='';$('create-day').value='';$('create-time').value='';});
+$('selected-card').addEventListener('change',event=>selectCard(event.target.value));
+$('assign-form').addEventListener('submit',event=>{event.preventDefault();const card=state.cards.find(c=>c.id===$('selected-card').value);if(!card){notify('배정할 카드를 먼저 선택해 주세요.',true);$('selected-card').focus();return;}try{const start=parseTime($('assign-time').value),day=Number($('assign-day').value),result=addEvent(card,day,start);if(result.error){notify(result.error,true);return;}renderEvents();persist();notify(DAYS[day]+' '+time(start)+'~'+time(start+card.duration)+'에 “'+card.name+'”을 배정했습니다.');revealEvent(result.event.id);}catch(err){notify(err.message,true);}});
+function startDrag(event,data){drag=data;event.dataTransfer.setData('text/plain',JSON.stringify({planner:true,kind:data.kind,id:data.id}));event.dataTransfer.effectAllowed=data.kind==='card'?'copy':'move';}
+function clearMarkers(){document.querySelectorAll('.drop-marker').forEach(e=>e.remove());document.querySelectorAll('.drop-over').forEach(e=>e.classList.remove('drop-over'));}
+function clearDrag(){clearMarkers();drag=null;}
+function dropTarget(event,column){if(!drag)return null;const source=drag.kind==='card'?state.cards.find(c=>c.id===drag.id):state.events.find(e=>e.id===drag.id);if(!source)return null;const day=Number(column.dataset.day);const relative=event.clientY-column.getBoundingClientRect().top;const start=START+(Math.floor(relative/SLOT)-drag.offset)*STEP;return{source,day,start,error:placementError(day,start,source.duration,drag.kind==='event'?drag.id:null)};}
+document.querySelectorAll('.day-column').forEach(column=>{column.addEventListener('dragover',event=>{const target=dropTarget(event,column);if(!target)return;event.preventDefault();event.dataTransfer.dropEffect=drag.kind==='card'?'copy':'move';clearMarkers();column.classList.add('drop-over');const marker=element('div','drop-marker'+(target.error?' invalid':''),time(target.start)+' · '+(target.error?'배정 불가':time(target.start+target.source.duration)));marker.style.top=Math.max(0,(target.start-START)/STEP*SLOT)+'px';marker.style.height=Math.max(SLOT,Math.min(target.source.duration/STEP*SLOT,column.clientHeight-parseFloat(marker.style.top)))+'px';column.append(marker);const viewport=$('timetable'),rect=viewport.getBoundingClientRect();if(event.clientY>rect.bottom-50)viewport.scrollTop+=18;else if(event.clientY<rect.top+90)viewport.scrollTop-=18;});column.addEventListener('dragleave',event=>{if(!column.contains(event.relatedTarget))clearMarkers();});column.addEventListener('drop',event=>{const target=dropTarget(event,column);if(!target)return;event.preventDefault();if(target.error){notify(target.error+(drag.kind==='event'?' 기존 위치를 유지했습니다.':''),true);clearDrag();return;}if(drag.kind==='card'){const result=addEvent(target.source,target.day,target.start);if(result.error){notify(result.error,true);clearDrag();return;}renderEvents();persist();notify(DAYS[target.day]+' '+time(target.start)+'~'+time(target.start+target.source.duration)+'에 복사했습니다. 원본 카드는 목록에 남아 있습니다.');}else{const error=moveEvent(drag.id,target.day,target.start);notify(error||DAYS[target.day]+' '+time(target.start)+'~'+time(target.start+target.source.duration)+'로 이동했습니다.',!!error);}clearDrag();});});
+function openEdit(id){const event=state.events.find(e=>e.id===id);if(!event)return;editingId=id;$('edit-name').textContent=event.name+' · '+durationText(event.duration);$('edit-day').value=String(event.day);$('edit-time').value=time(event.start);$('edit-error').textContent='';$('edit-dialog').showModal();}
+$('cancel-edit').addEventListener('click',()=>$('edit-dialog').close());
+$('edit-form').addEventListener('submit',event=>{event.preventDefault();try{const day=Number($('edit-day').value),start=parseTime($('edit-time').value),error=moveEvent(editingId,day,start);if(error){$('edit-error').textContent=error+' 기존 위치를 유지했습니다.';return;}$('edit-dialog').close();notify('일정의 요일과 시작 시간을 변경했습니다.');revealEvent(editingId);}catch(err){$('edit-error').textContent=err.message;}});
+$('jump-time').addEventListener('change',event=>{$('timetable').scrollTo({top:(Number(event.target.value)-START)/STEP*SLOT,behavior:'smooth'});});
+$('export-button').addEventListener('click',()=>{let url;try{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json;charset=utf-8'});url=URL.createObjectURL(blob);const link=element('a');link.href=url;link.download='chagok-planner.json';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);notify('현재 카드와 시간표의 JSON 파일 저장을 요청했습니다. 브라우저의 다운로드 목록을 확인해 주세요.');}catch(err){if(url)URL.revokeObjectURL(url);notify('파일을 저장하지 못했습니다. 브라우저의 다운로드 권한을 확인해 주세요.',true);}});
+$('import-button').addEventListener('click',()=>{$('import-file').value='';$('import-file').click();});
+$('import-file').addEventListener('change',async event=>{const file=event.target.files[0];if(!file)return;const request=++importEpoch;try{if(file.size>5*1024*1024)throw Error('파일은 5MB 이하만 불러올 수 있습니다.');const text=await file.text();if(request!==importEpoch)return;const imported=validateData(JSON.parse(text));const ok=window.confirm('파일의 카드 '+imported.cards.length+'개와 일정 '+imported.events.length+'개로 현재 카드와 시간표를 모두 교체할까요?\n현재 내용은 사라집니다. 필요한 경우 먼저 데이터 파일로 저장해 주세요.');if(!ok){notify('불러오기를 취소했습니다. 기존 내용을 유지합니다.');return;}state=imported;selectedId='';storageBlocked=false;renderCards();renderEvents();persist();notify('파일의 카드와 시간표로 전체 교체했습니다.');}catch(err){if(request!==importEpoch)return;notify('파일을 불러오지 못했습니다. 기존 내용을 유지합니다. '+(err instanceof SyntaxError?'올바른 JSON 파일이 아닙니다.':err.message),true);}finally{if(request===importEpoch)event.target.value='';}});
+$('reset-button').addEventListener('click',()=>{
+  if(!window.confirm('카드 목록 '+state.cards.length+'개와 배치된 일정 '+state.events.length+'개를 모두 지우고, 기본 카드 4종과 빈 시간표로 초기화할까요?\n이 작업은 되돌릴 수 없습니다. 보관할 계획은 먼저 “데이터 저장”으로 백업해 주세요.')){
+    notify('초기화를 취소했습니다. 기존 내용을 유지합니다.');
+    return;
+  }
+  const initial=defaults();
+  try{localStorage.setItem(STORAGE_KEY,JSON.stringify(initial));}
+  catch(err){
+    storageWarning('초기 상태를 저장하지 못해 초기화를 취소했습니다. 현재 카드와 일정은 유지됩니다. 저장 공간·권한을 확인해 주세요.',storageBlocked);
+    notify('저장하지 못해 초기화하지 않았습니다. 기존 내용을 유지합니다.',true);
+    return;
+  }
+  importEpoch++;
+  clearDrag();
+  if($('edit-dialog').open)$('edit-dialog').close();
+  state=initial;selectedId='';editingId=null;storageBlocked=false;
+  $('create-form').reset();$('assign-form').reset();$('edit-form').reset();
+  document.querySelector('input[name="color"][value="0"]').checked=true;
+  $('edit-name').textContent='';$('edit-error').textContent='';$('import-file').value='';
+  $('jump-time').value=String(START);
+  renderCards();renderEvents();
+  $('card-list').scrollTop=0;$('timetable').scrollTo({top:0,left:0,behavior:'instant'});
+  $('storage-warning').hidden=true;$('resume-storage').hidden=true;
+  $('save-status').textContent='자동 저장 완료';
+  notify('기본 카드 4종과 빈 시간표로 초기화하고 저장했습니다.');
+  $('card-name').focus();
+});
+$('resume-storage').addEventListener('click',()=>{if(!window.confirm('손상된 기존 저장값을 현재 화면의 카드와 시간표로 교체하고 자동 저장을 다시 시작할까요?'))return;storageBlocked=false;if(persist())notify('현재 내용을 저장하고 자동 저장을 다시 시작했습니다.');});
+COLORS.forEach((color,index)=>{const label=element('label','swatch'),input=element('input'),span=element('span');input.type='radio';input.name='color';input.value=String(index);input.checked=index===0;input.setAttribute('aria-label',color.name);span.style.backgroundColor=color.bg;span.title=color.name;label.append(input,span);$('swatches').append(label);});
+for(let minute=START;minute<=END;minute+=60){const label=element('span','hour-label',time(minute));label.style.top=((minute-START)/STEP*SLOT)+'px';$('time-axis').append(label);}
+load();renderCards();renderEvents();
+})();
+</script>
+</body>
+</html>
