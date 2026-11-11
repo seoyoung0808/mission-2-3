@@ -1,0 +1,31 @@
+{
+  "results": [
+    {
+      "day": 0,
+      "missing": true
+    },
+    {
+      "day": 1,
+      "selected": 1,
+      "message": "카드를 만들고 화요일 09:00~09:30에 배정했습니다."
+    },
+    {
+      "day": 2,
+      "selected": 1,
+      "message": "카드를 만들고 수요일 09:00~09:30에 배정했습니다."
+    },
+    {
+      "day": 3,
+      "selected": 1,
+      "message": "카드를 만들고 목요일 09:00~09:30에 배정했습니다."
+    },
+    {
+      "day": 4,
+      "selected": 1,
+      "message": "카드를 만들고 금요일 09:00~09:30에 배정했습니다."
+    }
+  ],
+  "axisCount": 19,
+  "helpButton": 0,
+  "settingsButton": 0
+}
